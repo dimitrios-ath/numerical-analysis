@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+% \usepackage[utf8]{inputenc} is no longer required (since 2018)
+
+% Set the font (output) encoding
+\usepackage[LGR]{fontenc}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{moreenum}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+
+\pgfkeys{/pgfplots/Axis Style/.style={
+    width=8.5cm, height=8.5cm,
+    samples=100,
+    ymin=-1, ymax=1,
+    xmin=-4, xmax=4,
+    domain=-pi:pi
+}}
+\graphicspath{ {./} }
+
+% Greek-specific commands
+\usepackage[greek]{babel}
+ \title{1η υποχρεωτική εργασία σε \textlatin {\LaTeX}} % Put your own title here
+
+% * Setting the author or authors of the document
+ \author{Όνοματεπώνυμο: Δημήτριος Αθανασιάδης  \\  ΑΕΜ: 3724}       % Put your own Name and AEM here
+
+% * Setting the date of the document
+  \date{Δεκέμβριος 2021}   
+\begin{document}
+\maketitle
+
+\begin{center}
+\section*{Άσκηση 1}
+\large{\begin{equation*}
+{f(x) = 14xe^{x-2}-12e^{x-2}-7x^3+20x^{2}-26x+12} \text{ στο διάστημα [0,3]}
+\end{equation*} 
+Γραφική παράσταση της συνάρτησης: \\~\\
+\includegraphics[width=\textwidth]{1.png} \\
+\pagebreak
+\end{center}
+Τρέχοντας το \textlatin{script “askisi1.py” (python3)} μπορούμε να υπολογίσουμε τις ρίζες της εξίσωσης \textlatin{f(x)=0} διαδοχικά με τις μεθόδους: α) διχοτόμησης, β) \textlatin{Newton-Raphson}, γ) τέμνουσας. Παρατηρούμε πως για την ζητούμενη ακρίβεια 5ου δεκαδικού ψηφίου χρειάζονται οι παρακάτω επαναλήψεις: \\
+\begin{center}
+\includegraphics[width=\textwidth]{2.png} \\~\\
+Παρακάτω βλέπουμε το \textlatin{output} από το \textlatin{script “askisi1.py”}: \\~\\ \\
+\includegraphics[width=\textwidth]{3.png} \\~\\
+\end{center}
+Για να συγκλίνει μια ρίζα τετραγωνικά στη μέθοδο \textlatin{Newton-Raphson} θα πρέπει να ισχύουν οι δύο συνθήκες: \textbf{φ(ρ) == 0} και \textbf{φ'(ρ) != 0}. Επομένως έχουμε: \\~\\
+Για την πρώτη ρίζα (0.85714): \textbf{φ(0.85714) = 0} και \textbf{φ'(0.85714) = -2.67817}, επομένως η ρίζα 0.85714 \underline{συγκλίνει τετραγωνικά}. \\~\\
+Για τη δεύτερη ρίζα (2.0): \textbf{φ(2) = 0} και \textbf{φ'(2) = 0}, άρα η ρίζα 2 \underline{δεν συγκλίνει} \underline{τετραγωνικά} καθώς δεν ισχύει η συνθήκη φ'(ρ) != 0
+}
+\pagebreak
+\begin{center}
+\section*{Άσκηση 2}
+\end{center}
+\large{
+Αφού υλοποιήσουμε τις τροποποιημένες μεθόδους \textlatin{Newton-Raphson}, διχοτόμησης και τέμνουσας, ψάχνουμε να βρούμε τις ρίζες της συνάρτησης:
+\begin{center}
+\begin{equation*}
+ f(x) = 54x^6+45x^5-102x^4 -69x^3+35x^2+16x-4 \end{equation*} 
+ στο διάστημα [-2,2], το γράφημα της οποίας βλέπουμε παρακάτω. \\~\\
+\includegraphics[width=\textwidth]{4.png} \\~\\
+\pagebreak
+Παρακάτω βλέπουμε το \textlatin{output} από το πρώτο κομμάτι του \textlatin{script “askisi2.py”:} \\~\\
+\includegraphics[width=\textwidth]{5.png} \\~\\ \end{center}}
+\large{
+Παρατηρούμε πως στις τροποποιημένες μεθόδους διχοτόμησης και τέμνουσας (όπως επίσης και στις συμβατικές) χάνουμε την ρίζα \textlatin{x}$\approx$0.66645 καθώς η τιμή της \textlatin{f(x)} είναι μικρότερη του μηδενός στα αριστερά και στα δεξιά του \textlatin{x}$\approx$0.66645, επομένως θα έχουμε \textlatin{f}(α)*\textlatin{f}(β)$>$0 για α$<$\textlatin{x} και β$>$\textlatin{x} (για παράδειγμα στο διάστημα [-1,-0.5] στο οποίο περιλαμβάνεται η ρίζα \textlatin{x}$\approx$0.66645 έχουμε \textlatin{f}(-1)$<$0 και \textlatin{f}(-0.5)$<$0), άρα \underline{δεν ισχύει} η συνθήκη \textlatin{f}(-1)*(-0.5)$<$0). \\~\\ 
+Σχετικά με το ερώτημα 2 της άσκησης 2, εκτελώντας την τροποποιημένη μέθοδο διχοτόμησης 10 φορές για το ίδιο διάστημα παρατηρούμε πως συγκλίνει σε διαφορετικό αριθμό επαναλήψεων κάθε φορά. Αυτό οφείλεται στο ότι η ρίζα δεν είναι το μέσο του διαστήματος αναζήτησης, αλλά ένα τυχαίο σημείο μέσα σε αυτό.
+}
+\pagebreak
+\begin{center}
+\large{
+Παρακάτω βλέπουμε το \textlatin{output} από το δεύτερο κομμάτι του \textlatin{script “askisi2.py”}: \\~\\
+\includegraphics[width=\textwidth]{6.png} \\~\\
+Τα αποτελέσματα περιγράφονται στον παρακάτω πίνακα: \\~\\
+\includegraphics[scale=0.5]{7.png} \\~\\
+\end{center}
+\pagebreak
+Στο ερώτημα 3 της άσκησης 2, για να συγκρίνουμε την ταχύτητα σύγκλισης των τροποποιημένων μεθόδων σε σχέση με τις κλασικές μετράμε την διάρκεια εκτέλεσης της κάθε συνάρτησης. Πειραματικά διαπιστώνουμε πως: \\
+\begin{itemize}
+  \item Η τροποποιημένη μέθοδος \textlatin{Newton-Raphson} συγκλίνει (κατά μέσο όρο) γρηγορότερα σε σχέση με την κλασική
+  \item Η κλασική μέθοδος διχοτόμησης συγκλίνει (κατά μέσο όρο) γρηγορότερα σε σχέση με την τροποποιημένη
+  \item Η τροποποιημένη μέθοδος τέμνουσας συγκλίνει (κατά μέσο όρο) γρηγορότερα σε σχέση με την κλασική
+\end{itemize} \\~\\
+Παρακάτω βλέπουμε το \textlatin{output} από το τρίτο κομμάτι του \textlatin{script “askisi2.py”}, το οποίο περιέχει τον αριθμό επαναλήψεων κάθε μεθόδου (κλασικής και τροποποιημένης) για μια συγκεκριμένη ρίζα και διάρκεια εκτέλεσης της: \\
+\begin{center}
+\includegraphics[width=\textwidth]{8.png} \\~\\
+\end{center}}
+
+\pagebreak
+\begin{center}
+\section*{Άσκηση 3}
+\end{center}
+\large{
+Για το ερώτημα 1 της άσκησης 3, η συνάρτηση \textlatin{“luDecomposition()”} του \textlatin{script “askisi3\textunderscore1.py”} δέχεται σαν είσοδο τον πίνακα Α και το διάνυσμα Β και επιστρέφει σαν έξοδο το διάνυσμα των αγνώστων \textlatin{x}. Χρησιμοποιούμε μια \textlatin{“print()”} για να εμφανίσουμε τα αποτελέσματα. Παρακάτω βλέπουμε το \textlatin{output} από το \textlatin{script “askisi3\textunderscore1.py”} χρησιμοποιώντας ένα πίνακα Α (περιγράφεται παρακάτω) ως παράδειγμα:} \\
+\begin{center}
+\includegraphics[width=\textwidth]{9.png} \\~\\
+\end{center}
+\pagebreak
+Στο ερώτημα 2 της άσκησης 3, η ζητούμενη συνάρτηση \textlatin{“cholesky()”} δέχεται έναν συμμετρικό και θετικά ορισμένο πίνακα Α και επιστρέφει έναν κάτω τριγωνικό πίνακα \textlatin{L} που αποτελεί την αποσύνθεση \textlatin{Cholesky} του πίνακα Α. Παρακάτω βλέπουμε το \textlatin{output} από το \textlatin{script “askisi3\textunderscore2.py”}: \\
+\begin{center}
+\includegraphics[width=\textwidth]{10.png} \\~\\
+\end{center}
+Για το ερώτημα 3 της άσκησης 3, χρησιμοποιήθηκε η μέθοδος \textlatin{Gauss-Seidel} για να επιλυθεί με ακρίβεια 4 δεκαδικών ψηφίων το αραιό σύστημα \textlatin{nxn}, α) για \textlatin{n}=10 και β) για \textlatin{n}=10000. Παρατηρούμε πως για το πρώτο σύστημα με \textlatin{n}=10 χρειάστηκαν 21 επαναλήψεις, ενώ για το δεύτερο σύστημα με \textlatin{n}=10000 χρειάστηκαν 24 επαναλήψεις. Παρακάτω βλέπουμε το \textlatin{output} από το \textlatin{script “askisi3\textunderscore3.py”}:
+\begin{center}
+\includegraphics[width=\textwidth]{11.png} \\
+\textbf{...} \\~\\
+\includegraphics[width=\textwidth]{12.png} \\
+\end{center}
+
+\end{document}

@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+% \usepackage[utf8]{inputenc} is no longer required (since 2018)
+
+% Set the font (output) encoding
+\usepackage[LGR]{fontenc}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{moreenum}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+
+
+\pgfkeys{/pgfplots/Axis Style/.style={
+    width=8.5cm, height=8.5cm,
+    samples=100,
+    ymin=-1, ymax=1,
+    xmin=-4, xmax=4,
+    domain=-pi:pi
+}}
+\graphicspath{ {./} }
+
+% Greek-specific commands
+\usepackage[greek]{babel}
+ \title{Αριθμητική Ανάλυση - 2η υποχρεωτική εργασία σε \textlatin {\LaTeX}} % Put your own title here
+
+% * Setting the author or authors of the document
+ \author{Όνοματεπώνυμο: Δημήτριος Αθανασιάδης  \\  ΑΕΜ: 3724}       % Put your own Name and AEM here
+
+% * Setting the date of the document
+  \date{Ιανουάριος 2022}   
+\begin{document}
+\maketitle
+
+\begin{center}
+\section*{Άσκηση 5}
+\end{center}
+
+Στην άσκηση 5, υλοποιήθηκαν σε \textlatin{python} τρεις διαφορετικές συναρτήσεις, οι οποίες προσεγγίζουν το ημίτονο με: α) πολυωνυμική προσέγγιση, β) \textlatin{splines}, γ) μέθοδο ελαχίστων τετραγώνων. Για τη δημιουργία των συναρτήσεων, χρησιμοποιήθηκαν τα εξής 10 ομοιόμορφα κατανεμημένα σημεία τα οποία βρίσκονται στο [-\pi,\pi]: \\
+
+\begin{center}
+    \includegraphics[width=150]{askisi5_data.png} 
+\end{center}
+
+Στη πολυωνυμική προσέγγιση, χρησιμοποιήθηκε η μέθοδος \textlatin{Newton}, η οποία για τα 10 σημεία που δόθηκαν, παράγει ένα πολυώνυμο 9ου βαθμού. Για τη δεύτερη προσέγγιση με \textlatin{splines}, χρησιμοποιήθηκαν \textlatin{splines} 3ου βαθμού (\textlatin{cubic splines}). Τέλος, για την μέθοδο ελαχίστων τετραγώνων χρησιμοποιήθηκε ένα πολυώνυμο 10ου βαθμού. \\
+
+Τρέχοντας το \textlatin{script “askisi5.py”} (με \textlatin{python3}) εμφανίζονται διαδοχικά τα 4 παρακάτω διαγράμματα, από τα οποία τα πρώτα τρία είναι οι γραφικές παραστάσεις των προσεγγίσεων, ενώ το τελευταίο συγκρίνει τα σφάλματα των διαφορετικών μεθόδων. Επιπλέον, εμφανίζονται πληροφορίες σχετικά με τα σφάλματα της κάθε μεθόδου, όπως ελάχιστο και μέγιστο σφάλμα και το \textlatin{Root Mean Squared Error (RMSE)} που θα χρησιμοποιηθεί παρακάτω για να συγκρίνουμε την ακρίβεια των μεθόδων. 
+\pagebreak
+\begin{center}
+    \includegraphics[width=\textwidth]{5_all_graphs.png}
+    \thispagestyle{empty}
+\end{center}
+\pagebreak \\
+\begin{center}
+    Διάγραμμα σφαλμάτων: \\~\\
+    \includegraphics[width=\textwidth]{5_errors.png} \\~\\
+    \includegraphics[width=\textwidth]{script5_output.png}
+\end{center}
+\pagebreak 
+Παρατηρώντας το διάγραμμα των σφαλμάτων και συγκρίνοντας το \textlatin{RMSE} της κάθε μεθόδου, συμπεραίνουμε πως η μέθοδος ελαχίστων τετραγώνων είναι αυτή που προσεγγίζει το ημίτονο με τη μεγαλύτερη ακρίβεια. Πολύ κοντά στην μέθοδο ελαχίστων τετραγώνων βρίσκεται η πολυωνυμική μέθοδος \textlatin{Newton}, ενώ τα κυβικά \textlatin{splines} είναι η μέθοδος με την μεγαλύτερη απόκληση.
+
+\begin{center}
+\section*{Άσκηση 6}
+\end{center}
+
+Στην άσκηση 6, υλοποιήθηκαν σε \textlatin{python} δύο διαφορετικές συναρτήσεις, οι οποίες υπολογίζουν το ολοκλήρωμα του ημιτόνου και το σφάλμα προσέγγισης με τις μεθόδους: α) \textlatin{Simpson}, β) τραπεζίου. Για τον υπολογισμό χρησιμοποιήθηκαν τα εξής 11 ομοιόμορφα κατανεμημένα σημεία τα οποία βρίσκονται στο [0, π/2 ]: \\~\\
+\begin{center}
+    \includegraphics[width=100]{askisi6_data.png} \\~\\
+    Παρακάτω βλέπουμε το \textlatin{output} του \textlatin{script “askisi6.py” (python3).} \\~\\
+    \includegraphics[width=\textwidth]{script6_output.png}
+\end{center}
+\pagebreak
+\begin{center}
+\section*{Άσκηση 7}
+\end{center} \\~\\
+Για την άσκηση 7, επιλέχθηκαν οι ισοτιμίες των κρυπτονομισμάτων \textlatin{Bitcoin (BTC-USD)} και \textlatin{Ethereum (ETH-USD)}, γύρω από την ημερομηνία 08/02/2021. Οι τιμές κλεισίματος που χρησιμοποιήθηκαν για τις 10 προηγούμενες συνεδριάσεις είναι: \\~\\
+\begin{center}
+    \includegraphics[width=200]{askisi7_data.png} \\~\\
+\end{center}
+Εκτελώντας το \textlatin{script “askisi7.py”} (με \textlatin{python3}) εμφανίζονται διαδοχικά 6 διαγράμματα, από τα οποία τα πρώτα τρία αφορούν την πρόβλεψη της τιμής του \textlatin{Bitcoin}, ενώ τα επόμενα τρία την πρόβλεψη της τιμής του \textlatin{Ethereum}, για τις ημερομηνίες 09/02/2021 (επόμενη μέρα) μέχρι και 13/02/2021 (πέντε μέρες μετά). Η προσέγγιση της συνάρτησης τιμής κλεισίματος γίνεται χρησιμοποιώντας πολυώνυμα 2ου, 3ου  και 4ου βαθμού με τη μέθοδο ελαχίστων τετραγώνων. \\~\\
+\begin{center}
+    Ακολουθούν τα 6 διαγράμματα:
+\end{center}
+\pagebreak
+\begin{center}
+    \includegraphics[width=\textwidth]{bitcoin_charts.png}
+    \thispagestyle{empty}
+    \pagebreak
+\end{center}
+\begin{center}
+    \includegraphics[width=\textwidth]{ethereum_charts.png}
+    \thispagestyle{empty}
+\end{center}
+\begin{center}
+\large{\textbf{\textlatin{Bitcoin (BTC-USD)}}}
+\end{center}
+Συγκρίνοντας τα αποτελέσματα, παρατηρούμε πως η προσέγγιση χρησιμοποιώντας πολυώνυμο 2ου βαθμού είναι αυτή που βρίσκεται πιο κοντά στις πραγματικές τιμές. Ακολουθεί πίνακας με τα συγκεντρωτικά αποτελέσματα για τις τιμές του \textlatin{Bitcoin} για τις πέντε μέρες (08/02-13/02): \\
+\begin{center}
+    \includegraphics[width=\textwidth]{btc_prices.png}
+    \\~\\
+\end{center}
+\begin{center}
+
+\large{\textbf{\textlatin{Ethereum (ETH-USD)}}}
+\end{center}
+Συγκρίνοντας τα αποτελέσματα, παρατηρούμε πως η προσέγγιση χρησιμοποιώντας πολυώνυμο 2ου βαθμού είναι και πάλι αυτή που βρίσκεται πιο κοντά στις πραγματικές τιμές. Ακολουθεί πίνακας με τα συγκεντρωτικά αποτελέσματα για τις τιμές του \textlatin{Ethereum} για τις πέντε μέρες (08/02-13/02): \\
+\begin{center}
+    \includegraphics[width=\textwidth]{eth_prices.png}
+\end{center}
+\end{document}
